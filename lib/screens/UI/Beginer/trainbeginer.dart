@@ -54,7 +54,7 @@ class _MyWidgetState extends State<AIMyWidget> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          Pushup()));
+                                          const Pushup()));
                             },
                           ),
                         ],
@@ -191,7 +191,8 @@ class SlideItem extends StatelessWidget {
                     if (states.contains(MaterialState.pressed)) {
                       return Colors.blue.shade700; // Màu khi nút được nhấn
                     }
-                    return Colors.blue; // Màu bình thường
+                    return const Color.fromARGB(
+                        255, 72, 231, 93); // Màu bình thường
                   },
                 ),
               ),

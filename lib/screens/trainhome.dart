@@ -313,12 +313,23 @@ class SlideItem extends StatelessWidget {
             Text(description,
                 style: const TextStyle(fontSize: 14, color: Colors.white)),
             Spacer(),
-            ElevatedButton(
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 120),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
                 onPressed: onPressd,
-                child: Text(
-                  "START",
-                  style: TextStyle(color: Colors.black),
-                )),
+                child: Text("START",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold)),
+              ),
+            ),
           ],
         ),
       ),
