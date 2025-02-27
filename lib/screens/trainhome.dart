@@ -1,16 +1,16 @@
-import 'package:app/main.dart';
-import 'package:app/screens/BaoCao/Report_Screen.dart';
-import 'package:app/screens/Khampha/Explore_Screen.dart';
-import 'package:app/screens/UI/Beginer/beginer.dart';
+import 'package:app/screens/BaoCao/report_screen.dart';
+import 'package:app/screens/Khampha/explore_screen.dart';
+
 import 'package:app/screens/Train/train_screen.dart';
-import 'package:app/screens/User/User_Screen.dart';
+import 'package:app/screens/User/user_screen.dart';
 import 'package:app/screens/Shop/shop_screen.dart'; // Import ShopScreen
 import 'package:flutter/material.dart';
 
 class Trainhome extends StatefulWidget {
-  const Trainhome({Key? key}) : super(key: key);
+  const Trainhome({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TrainhomeState createState() => _TrainhomeState();
 }
 
@@ -46,15 +46,15 @@ class _TrainhomeState extends State<Trainhome> {
           navigationBarTheme: NavigationBarThemeData(
             indicatorColor: const Color.fromARGB(255, 10, 33, 241),
             backgroundColor: Colors.white,
-            labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
+            labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
               (states) {
-                if (states.contains(MaterialState.selected)) {
-                  return TextStyle(
-                    color: const Color.fromARGB(255, 79, 59, 255),
+                if (states.contains(WidgetState.selected)) {
+                  return const TextStyle(
+                    color: Color.fromARGB(255, 79, 59, 255),
                     fontWeight: FontWeight.bold,
                   );
                 }
-                return TextStyle(color: const Color.fromARGB(255, 0, 0, 0));
+                return const TextStyle(color: Color.fromARGB(255, 0, 0, 0));
               },
             ),
           ),

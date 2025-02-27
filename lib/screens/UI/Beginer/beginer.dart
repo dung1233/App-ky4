@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class Beginer extends StatefulWidget {
-  const Beginer({Key? key}) : super(key: key);
+  const Beginer({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BeginerState createState() => _BeginerState();
 }
 
@@ -43,20 +44,21 @@ class _BeginerState extends State<Beginer> {
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       image: DecorationImage(
-                        image: AssetImage("assets/img/OIP.jpg"),
+                        image: const AssetImage("assets/img/OIP.jpg"),
                         fit: BoxFit.cover,
                         colorFilter: ColorFilter.mode(
+                          // ignore: deprecated_member_use
                           Colors.blue.withOpacity(0.2),
                           BlendMode.darken,
                         ),
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(20, 50, 20, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 50, 20, 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "BEGINER CHALLENGE",
                             style: TextStyle(
                               fontSize: 25,
@@ -64,26 +66,27 @@ class _BeginerState extends State<Beginer> {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(5, 70, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(5, 70, 0, 0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   "28 Days left",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 Text(
                                   "${(progress * 100).toInt()}%",
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           LinearProgressIndicator(
                             value: progress,
+                            // ignore: deprecated_member_use
                             backgroundColor: Colors.white.withOpacity(0.5),
                             color: Colors.blueAccent,
                           ),
@@ -94,7 +97,7 @@ class _BeginerState extends State<Beginer> {
                 ),
               ],
             ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
 
             // Danh sách tuần và các ngày
             Column(
@@ -109,12 +112,12 @@ class _BeginerState extends State<Beginer> {
                     children: [
                       Text(
                         "Week ${weekIndex + 1}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       _buildWeekGridView(
                           weekDays), // Hiển thị lưới ngày của tuần
                     ],
@@ -123,7 +126,7 @@ class _BeginerState extends State<Beginer> {
               }).toList(),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -143,9 +146,9 @@ class _BeginerState extends State<Beginer> {
 
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: weekDays.length, // Số ngày trong tuần
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4, // Mỗi hàng hiển thị 4 ngày
         mainAxisSpacing: 8,
         crossAxisSpacing: 8,
@@ -160,14 +163,14 @@ class _BeginerState extends State<Beginer> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => AIMyWidget()),
+              MaterialPageRoute(builder: (context) => const AIMyWidget()),
             );
           },
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(100),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Color.fromARGB(204, 218, 214, 214),
                   offset: Offset(0, 2),
@@ -187,7 +190,7 @@ class _BeginerState extends State<Beginer> {
                     ),
                     Text(
                       "$day",
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
                         fontWeight: FontWeight.bold,

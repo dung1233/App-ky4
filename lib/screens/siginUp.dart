@@ -1,4 +1,5 @@
-import 'package:app/screens/login.dart';
+import 'package:app/screens/Login/login.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -6,6 +7,7 @@ class SignUppage extends StatefulWidget {
   const SignUppage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignUppageState createState() => _SignUppageState();
 }
 
@@ -24,20 +26,20 @@ class _SignUppageState extends State<SignUppage> {
         width: 300,
         child: TextFormField(
           obscureText: obscureText,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             labelText: labelText,
             hintText: hintText,
-            hintStyle: TextStyle(color: Colors.white),
-            labelStyle: TextStyle(color: Colors.white),
+            hintStyle: const TextStyle(color: Colors.white),
+            labelStyle: const TextStyle(color: Colors.white),
             filled: true,
             fillColor: Colors.grey[800],
             prefixIcon: Icon(
               prefixIcon,
               color: Colors.white,
             ),
-            border: OutlineInputBorder(),
-            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+            border: const OutlineInputBorder(),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 10),
           ),
         ),
       ),
@@ -64,11 +66,11 @@ class _SignUppageState extends State<SignUppage> {
                 'assets/icons/Group.svg',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
               child: Text(
                 'Create your account',
                 style: TextStyle(
@@ -77,7 +79,7 @@ class _SignUppageState extends State<SignUppage> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Center(
@@ -90,7 +92,7 @@ class _SignUppageState extends State<SignUppage> {
                     obscureText: false,
                     prefixIcon: Icons.person_2_outlined,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   _buildTextField(
@@ -99,7 +101,7 @@ class _SignUppageState extends State<SignUppage> {
                     obscureText: false,
                     prefixIcon: Icons.email,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   _buildTextField(
@@ -108,7 +110,7 @@ class _SignUppageState extends State<SignUppage> {
                     obscureText: true,
                     prefixIcon: Icons.security,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -129,17 +131,16 @@ class _SignUppageState extends State<SignUppage> {
                                 );
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
-                            Expanded(
+                            const Expanded(
                                 child: Wrap(
                               children: [
                                 Text(
                                   'I have read & agreed to DayTask',
                                   style: TextStyle(
-                                    color: const Color.fromARGB(
-                                        255, 196, 193, 193),
+                                    color: Color.fromARGB(255, 196, 193, 193),
                                   ),
                                 ),
                                 Text(
@@ -155,20 +156,22 @@ class _SignUppageState extends State<SignUppage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
                     width: 300,
                     height: 50,
-                    decoration: BoxDecoration(
-                        color: const Color(0xffFED36A) // Chỉnh màu phù hợp
+                    decoration: const BoxDecoration(
+                        color: Color(0xffFED36A) // Chỉnh màu phù hợp
                         ),
                     child: TextButton(
                       onPressed: () {
-                        print("Login button pressed!");
+                        if (kDebugMode) {
+                          print("Login button pressed!");
+                        }
                       },
-                      child: Text(
+                      child: const Text(
                         "Sign In",
                         style: TextStyle(
                           fontSize: 18,
@@ -178,17 +181,17 @@ class _SignUppageState extends State<SignUppage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  const SizedBox(
                     width: 300,
                     height: 50,
                     child: Row(
                       children: [
                         Expanded(
                           child: Divider(
-                            color: const Color.fromARGB(255, 196, 193, 193),
+                            color: Color.fromARGB(255, 196, 193, 193),
                             thickness: 1,
                           ),
                         ),
@@ -197,20 +200,20 @@ class _SignUppageState extends State<SignUppage> {
                           child: Text(
                             'Or Continue with',
                             style: TextStyle(
-                              color: const Color.fromARGB(255, 196, 193, 193),
+                              color: Color.fromARGB(255, 196, 193, 193),
                             ),
                           ),
                           // Khoảng cách giữa chữ và gạch
                         ),
                         Expanded(
                             child: Divider(
-                          color: const Color.fromARGB(255, 196, 193, 193),
+                          color: Color.fromARGB(255, 196, 193, 193),
                           thickness: 1,
                         ))
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
@@ -225,36 +228,34 @@ class _SignUppageState extends State<SignUppage> {
                             255, 3, 3, 3) // Chỉnh màu phù hợp
                         ),
                     child: TextButton(
-                      onPressed: () {
-                        print("Login button pressed!");
-                      },
-                      child: Text(
+                      onPressed: () {},
+                      child: const Text(
                         "@ Google",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: const Color.fromARGB(255, 255, 255, 255),
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  SizedBox(
                     width: 300,
                     height: 50,
                     child: Center(
                         child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Already have an account?  ',
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 196, 193, 193),
+                            color: Color.fromARGB(255, 196, 193, 193),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         GestureDetector(
@@ -262,10 +263,10 @@ class _SignUppageState extends State<SignUppage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Loginpage()),
+                                  builder: (context) => const LoginScreen()),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Log in ',
                             style: TextStyle(
                               color: Colors.yellow,

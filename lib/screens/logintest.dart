@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart'
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart'; // Import firebase_core
+// Import firebase_core
 
 /// ! We use riverpod to watch the login state change, and rebuild screen.
 /// ! For more details see the riverpod example.
@@ -34,8 +34,8 @@ class FirebaseAuthUiExample extends ConsumerWidget {
   Widget _buildLoginScreen() {
     /// This SignInScreen comes from firebase_ui_auth package.
     return SignInScreen(
-      headerBuilder: (context, constraints, _) => Padding(
-        padding: const EdgeInsets.all(8.0),
+      headerBuilder: (context, constraints, _) => const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Icon(Icons.account_circle, size: 100), // Thay thế kAppIcon
       ),
       footerBuilder: (context, _) {
@@ -52,8 +52,8 @@ class FirebaseAuthUiExample extends ConsumerWidget {
   }
 
   Widget _buildProfileScreen() {
-    return ProfileScreen(
-      children: const [
+    return const ProfileScreen(
+      children: [
         Text(
             '🚀We could add more content to the profile screen via the children param.')
       ],

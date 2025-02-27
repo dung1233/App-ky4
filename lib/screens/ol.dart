@@ -12,9 +12,7 @@ class _MyWidgetState extends State<Ola> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-        child: Text('data Ola'),
-      ),
+      body: const Text('data Ola'),
     );
   }
 }

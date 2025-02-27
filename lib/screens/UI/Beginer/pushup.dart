@@ -40,8 +40,8 @@ class _PushupState extends State<Pushup> {
           ),
           const SizedBox(height: 20),
           // Các thông tin khác
-          Padding(
-            padding: const EdgeInsets.only(left: 25, top: 20, right: 20),
+          const Padding(
+            padding: EdgeInsets.only(left: 25, top: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -56,7 +56,7 @@ class _PushupState extends State<Pushup> {
                           color: Colors.blueAccent,
                           size: 28,
                         ),
-                        const SizedBox(width: 10),
+                        SizedBox(width: 10),
                         Text(
                           "TG",
                           style: TextStyle(
@@ -67,10 +67,10 @@ class _PushupState extends State<Pushup> {
                         ),
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                         height: 8), // Khoảng cách giữa TG và Thời gian còn lại
                     Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
+                      padding: EdgeInsets.only(left: 5.0),
                       child: Text(
                         '00:30', // Thay thế bằng giá trị bạn tính toán được
                         style: TextStyle(
@@ -94,7 +94,7 @@ class _PushupState extends State<Pushup> {
                           color: Colors.orange,
                           size: 28,
                         ),
-                        const SizedBox(width: 10),
+                        SizedBox(width: 10),
                         Text(
                           "Push-UP",
                           style: TextStyle(
@@ -105,11 +105,11 @@ class _PushupState extends State<Pushup> {
                         ),
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                         height:
                             8), // Khoảng cách giữa Gap bung và Số lần còn lại
                     Padding(
-                      padding: const EdgeInsets.only(left: 60.0),
+                      padding: EdgeInsets.only(left: 60.0),
                       child: Text(
                         '5', // Thay thế bằng giá trị bạn tính toán được
                         style: TextStyle(
@@ -124,19 +124,19 @@ class _PushupState extends State<Pushup> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 72, 231, 93),
-              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 50),
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 50),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
             onPressed: () {},
-            child: Text("START",
+            child: const Text("START",
                 style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,

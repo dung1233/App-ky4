@@ -193,7 +193,7 @@ Widget _warmup(
   String subtitle,
 ) {
   return Padding(
-    padding: EdgeInsets.only(left: 15, right: 10),
+    padding: const EdgeInsets.only(left: 15, right: 10),
     child: GestureDetector(
       onTap: () {
         if (kDebugMode) {

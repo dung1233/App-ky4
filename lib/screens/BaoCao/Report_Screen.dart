@@ -1,13 +1,14 @@
+// ignore: file_names
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class ReportScreen extends StatefulWidget {
   const ReportScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ReportScreenState createState() => _ReportScreenState();
 }
 
@@ -51,15 +52,13 @@ class _ReportScreenState extends State<ReportScreen> {
               children: [
                 _buildHeader(),
                 _buildTabButtons(),
-                Container(
-                  child: IndexedStack(
-                    index: _selectedButtonIndex,
-                    children: [
-                      _buildCalendar(),
-                      _buildRank(),
-                      _buildTime(),
-                    ],
-                  ),
+                IndexedStack(
+                  index: _selectedButtonIndex,
+                  children: [
+                    _buildCalendar(),
+                    _buildRank(),
+                    _buildTime(),
+                  ],
                 ),
                 const SizedBox(
                   height: 5,
@@ -270,10 +269,10 @@ class _ReportScreenState extends State<ReportScreen> {
   }
 
   Widget _buildTime() {
-    return Center(
+    return const Center(
       child: Text(
-        'loi',
-        style: const TextStyle(fontSize: 20),
+        'Time ',
+        style: TextStyle(fontSize: 20),
       ),
     );
   }
