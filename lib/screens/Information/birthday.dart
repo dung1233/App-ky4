@@ -1,5 +1,6 @@
 import 'package:app/data/local.dart';
-import 'package:app/screens/trainhome.dart';
+import 'package:app/screens/Information/hight.dart';
+
 import 'package:flutter/material.dart';
 
 class BirthDateScreen extends StatefulWidget {
@@ -167,14 +168,14 @@ class _BirthDateScreenState extends State<BirthDateScreen> {
               onPressed: isButtonEnabled
                   ? () async {
                       if (_selectedDate != null) {
-                        await LocalStorage.saveUserData(
-                            "", _calculatedAge, "", "");
+                        await LocalStorage.saveUserData(age: _calculatedAge);
                         print(
                             "✅ Đã lưu tuổi vào LocalStorage: $_calculatedAge");
                         Navigator.push(
+                          // ignore: use_build_context_synchronously
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Trainhome()),
+                              builder: (context) => HightScreen()),
                         );
                       }
                     }

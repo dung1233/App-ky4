@@ -1,61 +1,123 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart'; // Sử dụng font đẹp hơn
 
 class Wellcome extends StatefulWidget {
   const Wellcome({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _WellcomeState createState() => _WellcomeState();
 }
 
-class _WellcomeState extends State<Wellcome> {
+class _WellcomeState extends State<Wellcome>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _progressAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Tạo animation cho progress bar
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+
+    _progressAnimation = Tween<double>(begin: 0.0, end: 0.05).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
+    );
+
+    _animationController.forward(); // Chạy animation khi vào màn hình
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-          top: 10, left: 22, right: 20), // Đẩy xuống một chút cho đẹp
+      padding: const EdgeInsets.only(top: 25, left: 22, right: 20),
       child: Container(
-        width: double.infinity, // Căng hết chiều ngang
-        height: 100,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 253, 251, 251),
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
+        width: double.infinity,
+        height: 140,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              // ignore: deprecated_member_use
+              color: Colors.black.withOpacity(0.1),
+              offset: const Offset(0, 4),
+              blurRadius: 8,
             ),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Color.fromARGB(204, 236, 234, 234),
-                offset: Offset(0, 2),
-                blurRadius: 2,
-              ), // Chỉnh màu phù hợp
-            ]),
-        padding: const EdgeInsets.symmetric(
-            horizontal: 10), // Thêm padding để cân đối
+          ],
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround, // Căn đều 2 bên
           children: [
-            Image.asset(
-              'assets/icons/PT.png',
-              width: 50,
-              height: 50,
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                // ignore: deprecated_member_use
+                color: Colors.blueAccent.withOpacity(0.1),
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset(
+                'assets/icons/PT.png',
+                width: 50,
+                height: 50,
+              ),
             ),
-
-            const Wrap(
-              children: [
-                Text(
-                  'Your body might be tired,\nbut your willpower never gives up!',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-              ],
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Task Completion (5%/100%)',
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Image.asset(
+                        'assets/icons/Cup.png',
+                        width: 22,
+                        height: 22,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  AnimatedBuilder(
+                    animation: _animationController,
+                    builder: (context, child) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: LinearProgressIndicator(
+                          value: _progressAnimation.value,
+                          minHeight: 10,
+                          backgroundColor: Colors.grey[300],
+                          valueColor: const AlwaysStoppedAnimation<Color>(
+                            Colors.blueAccent,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
-
-            // Icon người dùng
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }

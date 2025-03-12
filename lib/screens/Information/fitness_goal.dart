@@ -1,49 +1,52 @@
 import 'package:app/data/local.dart';
-import 'package:app/screens/Information/level_data.dart';
+import 'package:app/screens/Information/medical_conditions.dart';
+import 'package:app/widget/elevatedButton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:app/widget/elevatedButton.dart';
 
-class Datascreen extends StatefulWidget {
-  const Datascreen({super.key});
+class FitnessGoal extends StatefulWidget {
+  const FitnessGoal({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _DataState createState() => _DataState();
+  _FitnessGoalState createState() => _FitnessGoalState();
 }
 
-final List<Map<String, String>> options = [
-  {"title": "Male", "icon": "assets/icons/male.png"},
-  {"title": "Female", "icon": "assets/icons/female.png"},
-  {"title": "Non", "icon": "assets/icons/Carrot.png"},
-];
+class _FitnessGoalState extends State<FitnessGoal> {
+  final List<Map<String, String>> options = [
+    {"title": "Weight loss", "icon": "assets/icons/loss.png"},
+    {"title": "Muscle gain", "icon": "assets/icons/Muscle.png"},
+    {"title": "Challenge yourself", "icon": "assets/icons/Challenge.png"},
+  ];
 
-class _DataState extends State<Datascreen> {
-  int selectedOption = -1; // Mặc định chưa chọn gì
+  int selectedOption = -1;
   @override
   void initState() {
     super.initState();
-    _loadGender(); // Gọi khi màn hình khởi tạo
+    _loadfitness();
   }
 
-  void _loadGender() async {
+  void _loadfitness() async {
     Map<String, dynamic> userData = await LocalStorage.loadUserData();
-    String savedGender = userData['gender'] ?? "";
-
-    int index = options.indexWhere((option) => option["title"] == savedGender);
-    if (index != -1) {
+    String savefitness = userData['fitness'] ?? "";
+    int index =
+        options.indexWhere((options) => options['title'] == savefitness);
+    if (index != 1) {
       setState(() {
         selectedOption = index;
       });
     }
-
-    print("🔥 Giới tính đã lưu: $savedGender"); // Debug
+    if (kDebugMode) {
+      print("fitness da luu $savefitness");
+    }
   }
 
-  void _saveGender() async {
-    String gender = options[selectedOption]["title"]!;
-    await LocalStorage.saveUserData(gender: gender);
-    print("✅ Đã lưu giới tính: $gender");
+  void _savefitness() async {
+    String fitness = options[selectedOption]['title']!;
+    await LocalStorage.saveUserData(fitness: fitness);
+    if (kDebugMode) {
+      print('✅fitness da dc luu moi: $fitness');
+    }
   }
 
   @override
@@ -58,9 +61,9 @@ class _DataState extends State<Datascreen> {
             const Center(
               child: SizedBox(
                 height: 100,
-                width: 120,
+                width: 220,
                 child: Text(
-                  "What's your gender?",
+                  "What is your main fitness goal?",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 25,
@@ -69,7 +72,7 @@ class _DataState extends State<Datascreen> {
                 ),
               ),
             ),
-
+            const SizedBox(height: 100),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
@@ -80,7 +83,7 @@ class _DataState extends State<Datascreen> {
                       setState(() {
                         selectedOption = index;
                       });
-                      _saveGender(); // Lưu ngay khi chọn
+                      _savefitness();
                     },
                     child: Container(
                       width: 300,
@@ -121,25 +124,19 @@ class _DataState extends State<Datascreen> {
             ),
             const SizedBox(height: 30),
             Buttonscreen(
-              isEnabled:
-                  selectedOption != -1, // Chỉ bật nút nếu đã chọn giới tính
+              isEnabled: selectedOption != -1,
               onPressed: () async {
-                if (selectedOption == -1)
-                  return; // Nếu chưa chọn thì không làm gì cả
-                String gender = options[selectedOption]["title"]!;
-                await LocalStorage.saveUserData(gender: gender);
-                if (kDebugMode) {
-                  print("✅ Đã lưu tuổi vào LocalStorage: $gender");
-                }
+                if (selectedOption == -1) return;
+                String fitness = options[selectedOption]['title']!;
+                await LocalStorage.saveUserData(fitness: fitness);
                 Navigator.push(
-                  // ignore: use_build_context_synchronously
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => Leverdata()),
-                );
+                    // ignore: use_build_context_synchronously
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            MedicalConditions()));
               },
             ),
-
             // Truyền trạng thái vào nút START
             const SizedBox(height: 25),
           ],

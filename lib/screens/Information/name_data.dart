@@ -7,6 +7,7 @@ class NameScreen extends StatefulWidget {
   const NameScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _NameScreenState createState() => _NameScreenState();
 }
 
@@ -44,12 +45,7 @@ class _NameScreenState extends State<NameScreen> {
   }
 
   void _onNextPressed() async {
-    await LocalStorage.saveUserData(
-      "", // Gender chưa nhập
-      0, // Age chưa nhập
-      _controller.text.trim(), // Name
-      "", // Level chưa nhập
-    );
+    await LocalStorage.saveUserData(name: _controller.text.trim());
 
     Navigator.push(
       context,

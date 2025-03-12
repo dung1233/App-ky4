@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class IconsUser extends StatefulWidget {
-  const IconsUser({super.key});
+  final Map<String, dynamic> userData;
+  const IconsUser({super.key, required this.userData});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -19,7 +20,7 @@ class _IconsUserState extends State<IconsUser> {
         height: 50,
         padding: const EdgeInsets.symmetric(
             horizontal: 10), // Thêm padding để cân đối
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween, // Căn đều 2 bên
           children: [
             Row(
@@ -32,7 +33,7 @@ class _IconsUserState extends State<IconsUser> {
                       color: Colors.black),
                 ),
                 Text(
-                  'User',
+                  widget.userData['name'] ?? 'Chưa có dữ liệu',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

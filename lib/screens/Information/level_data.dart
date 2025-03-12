@@ -1,6 +1,8 @@
 import 'package:app/data/local.dart';
-import 'package:app/screens/Information/heigh_data.dart';
+
+import 'package:app/screens/Information/name_data.dart';
 import 'package:app/widget/elevatedButton.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Leverdata extends StatefulWidget {
@@ -34,13 +36,17 @@ class _LeverdataState extends State<Leverdata> {
         selectedOption = index;
       });
     }
-    print("🔥 Level đã lưu: $saveLevel"); // Debug
+    if (kDebugMode) {
+      print("🔥 Level đã lưu: $saveLevel");
+    } // Debug
   }
 
   void _saveLevel() async {
     String level = options[selectedOption]['title']!;
-    await LocalStorage.saveUserData("", 0, "", level);
-    print("✅ Đã lưu Level mới: $level");
+    await LocalStorage.saveUserData(level: level);
+    if (kDebugMode) {
+      print("✅ Đã lưu Level mới: $level");
+    }
   }
 
   @override
@@ -122,8 +128,9 @@ class _LeverdataState extends State<Leverdata> {
               onPressed: () async {
                 if (selectedOption == -1) return;
                 String level = options[selectedOption]['title']!;
-                await LocalStorage.saveUserData("", 0, "", level);
+                await LocalStorage.saveUserData(level: level);
                 Navigator.push(
+                    // ignore: use_build_context_synchronously
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => const NameScreen()));

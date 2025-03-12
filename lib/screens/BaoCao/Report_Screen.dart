@@ -5,7 +5,7 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 class ReportScreen extends StatefulWidget {
-  const ReportScreen({super.key});
+  const ReportScreen({super.key, required Map<String, dynamic> userData});
 
   @override
   // ignore: library_private_types_in_public_api

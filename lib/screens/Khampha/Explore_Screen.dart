@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatelessWidget {
-  const ExploreScreen({super.key});
+  const ExploreScreen({super.key, required Map<String, dynamic> userData});
 
   @override
   Widget build(BuildContext context) {
@@ -325,7 +325,7 @@ Widget _blogCart(
     child: GestureDetector(
       onTap: () {
         if (kDebugMode) {
-          print('da vao muc blog');
+          print('da vao muc blog xay dung xung ');
         }
       },
       child: Column(
