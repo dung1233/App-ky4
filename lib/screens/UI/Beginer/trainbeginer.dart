@@ -1,4 +1,7 @@
+import 'package:app/screens/TEST/pushup_detector_view.dart';
+import 'package:app/screens/TEST/squat_detector_view.dart';
 import 'package:app/screens/UI/Beginer/pushup.dart';
+import 'package:app/screens/UI/Beginer/squat.dart';
 import 'package:flutter/material.dart';
 
 class AIMyWidget extends StatefulWidget {
@@ -52,7 +55,7 @@ class _MyWidgetState extends State<AIMyWidget> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                         Pushup()));
+                                         PushUpDetectorView()));
                           },
                         ),
                       ],
@@ -76,7 +79,13 @@ class _MyWidgetState extends State<AIMyWidget> {
                           description:
                               "Enhance strength and \nbuild endurance!",
                           imagePath: "assets/img/squat.jpg",
-                          onPressd: () {},
+                          onPressd: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        SquatDetectorView()));
+                          },
                         ),
                       ],
                     ),

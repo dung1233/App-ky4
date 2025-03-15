@@ -1,3 +1,4 @@
+import 'package:app/screens/TEST/pushup_detector_view.dart';
 import 'package:flutter/material.dart';
 
 class Pushup extends StatefulWidget {
@@ -26,17 +27,11 @@ class _PushupState extends State<Pushup> {
       body: Column(
         children: [
           // Placeholder cho camera
-          Container(
+          // Thay thế Placeholder bằng PushupDetectorView
+          SizedBox(
             width: 400,
             height: 450,
-            color: Colors.grey.shade300,
-            child: const Center(
-              child: Icon(
-                Icons.image,
-                size: 100,
-                color: Colors.grey,
-              ),
-            ),
+            child: PushUpDetectorView(),
           ),
           const SizedBox(height: 20),
           // Các thông tin khác
