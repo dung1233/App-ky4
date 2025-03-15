@@ -7,6 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.app"
+<<<<<<< HEAD
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,6 +17,17 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17" // Đặt JVM target cho Kotlin
+=======
+    compileSdk = 35 //camera
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8 //Nâng lên Java 18
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+>>>>>>> Minh
     }
 
     defaultConfig {
@@ -23,8 +35,13 @@ android {
         applicationId = "com.example.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
+<<<<<<< HEAD
         minSdk = 23
         targetSdk = flutter.targetSdkVersion
+=======
+        minSdkVersion 23 //camera
+        targetSdk = 33 //camera
+>>>>>>> Minh
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

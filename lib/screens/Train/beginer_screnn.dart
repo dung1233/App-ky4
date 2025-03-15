@@ -10,7 +10,11 @@ class BeginnerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final int currentDay =
+<<<<<<< HEAD
         userData["currentDay"] ?? 1; // 🔥 Lấy ngày hiện tại từ userData
+=======
+        userData["currentDay"] ?? 2; // 🔥 Lấy ngày hiện tại từ userData
+>>>>>>> Minh
 
     // Lấy bài tập hôm nay từ danh sách beginnerWorkouts
     final workout = beginnerWorkouts.firstWhere(

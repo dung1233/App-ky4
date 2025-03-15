@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:app/data/local_storage.dart';
+=======
+import 'package:app/data/local.dart';
+>>>>>>> Minh
 import 'package:app/screens/Information/medical_conditions.dart';
 import 'package:app/widget/elevatedButton.dart';
 import 'package:flutter/foundation.dart';
@@ -28,7 +32,11 @@ class _FitnessGoalState extends State<FitnessGoal> {
 
   void _loadfitness() async {
     Map<String, dynamic> userData = await LocalStorage.loadUserData();
+<<<<<<< HEAD
     String savefitness = userData['fitness_goal'] ?? "";
+=======
+    String savefitness = userData['fitness'] ?? "";
+>>>>>>> Minh
     int index =
         options.indexWhere((options) => options['title'] == savefitness);
     if (index != 1) {
@@ -42,10 +50,17 @@ class _FitnessGoalState extends State<FitnessGoal> {
   }
 
   void _savefitness() async {
+<<<<<<< HEAD
     String fitnessGoal = options[selectedOption]['title']!;
     await LocalStorage.saveUserData(fitness_goal: fitnessGoal);
     if (kDebugMode) {
       print('✅fitness da dc luu moi: $fitnessGoal');
+=======
+    String fitness = options[selectedOption]['title']!;
+    await LocalStorage.saveUserData(fitness: fitness);
+    if (kDebugMode) {
+      print('✅fitness da dc luu moi: $fitness');
+>>>>>>> Minh
     }
   }
 
@@ -127,8 +142,13 @@ class _FitnessGoalState extends State<FitnessGoal> {
               isEnabled: selectedOption != -1,
               onPressed: () async {
                 if (selectedOption == -1) return;
+<<<<<<< HEAD
                 String fitnessGoal = options[selectedOption]['title']!;
                 await LocalStorage.saveUserData(fitness_goal: fitnessGoal);
+=======
+                String fitness = options[selectedOption]['title']!;
+                await LocalStorage.saveUserData(fitness: fitness);
+>>>>>>> Minh
                 Navigator.push(
                     // ignore: use_build_context_synchronously
                     context,
