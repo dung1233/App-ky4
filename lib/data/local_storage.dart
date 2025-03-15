@@ -4,14 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LocalStorage {
   static Future<void> saveUserData({
     String? gender, //gioi tinh
-    String? level, //level chon
-    String? name, //ten
+
     int? age, // tuoi
-    int? cm, //chieu cao
-    int? kg, // can nang
-    String? activity, //muc do hoat dong
-    String? fitness, // muc tieu chinh
-    String? medical, //tinh trang suc khoe
+    int? height, //chieu cao
+    int? weight, // can nang
+    // ignore: non_constant_identifier_names
+    String? activity_level, //muc do hoat dong
+    // ignore: non_constant_identifier_names
+    String? fitness_goal, // muc tieu chinh
+    // ignore: non_constant_identifier_names
+    String? medical_conditions, //tinh trang suc khoe
+    String? level, //level chon
     // String? diet, //che don an chay hoac bth
   }) async {
     final prefs = await SharedPreferences.getInstance();
@@ -23,14 +26,14 @@ class LocalStorage {
     final newData = {
       "gender": gender ??
           existingData["gender"], // Giữ giá trị cũ nếu không có giá trị mới
-      "level": level ?? existingData["level"],
-      "name": name ?? existingData["name"],
       "age": age ?? existingData["age"],
-      "cm": cm ?? existingData["cm"],
-      "kg": kg ?? existingData["kg"],
-      "activity": activity ?? existingData["activity"],
-      "fitness": fitness ?? existingData["fitness"],
-      "medical": medical ?? existingData["medical"],
+      "height": height ?? existingData["height"],
+      "weight": weight ?? existingData["weight"],
+      "activity_level": activity_level ?? existingData["activity_level"],
+      "fitness_goal": fitness_goal ?? existingData["fitness_goal"],
+      "medical_conditions":
+          medical_conditions ?? existingData["medical_conditions"],
+      "level": level ?? existingData["level"],
       // "diet": diet ?? existingData["diet"],
     };
 
@@ -44,7 +47,6 @@ class LocalStorage {
     if (data != null) {
       return jsonDecode(data);
     }
-
     return {}; // Trả về map rỗng nếu chưa có dữ liệu
   }
 }

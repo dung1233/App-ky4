@@ -1,7 +1,8 @@
-import 'package:app/data/local.dart';
+import 'package:app/data/local_storage.dart';
 import 'package:app/screens/Information/kg_screen.dart';
 
 import 'package:app/widget/elevatedButton.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HightScreen extends StatefulWidget {
@@ -32,9 +33,10 @@ class _HightState extends State<HightScreen> {
 
   void _loadhight() async {
     Map<String, dynamic> userData = await LocalStorage.loadUserData();
-    int? savedHeight = userData['cm'];
-    print(
-        "📌 Chieu cao đã lưu trong LocalStorage: $savedHeight"); // Lấy giá trị cm từ local storage
+    int? savedHeight = userData['height'];
+    if (kDebugMode) {
+      print("📌 Chieu cao đã lưu trong LocalStorage: $savedHeight");
+    } // Lấy giá trị cm từ local storage
 
     if (savedHeight != null && savedHeight >= 140 && savedHeight <= 200) {
       setState(() {
@@ -45,7 +47,9 @@ class _HightState extends State<HightScreen> {
       setState(() {
         _controller.text = ""; // Nếu không hợp lệ thì để trống
         isButtonEnabled = false;
-        print("📌 Chieu cao đã lưu trong LocalStorage: $savedHeight");
+        if (kDebugMode) {
+          print("📌 Chieu cao đã lưu trong LocalStorage: $savedHeight");
+        }
       });
     }
   }
@@ -60,8 +64,9 @@ class _HightState extends State<HightScreen> {
   void _onNextPressed() async {
     int? height = int.tryParse(_controller.text.trim()); // Chuyển về int
     if (height != null && height >= 140 && height <= 200) {
-      await LocalStorage.saveUserData(cm: height);
+      await LocalStorage.saveUserData(height: height);
       Navigator.push(
+        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (context) => KgScreen()),
       );

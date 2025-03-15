@@ -1,6 +1,6 @@
-import 'package:app/data/local.dart';
+import 'package:app/data/local_storage.dart';
 
-import 'package:app/screens/Information/name_data.dart';
+import 'package:app/screens/Information/themloading.dart';
 import 'package:app/widget/elevatedButton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +133,8 @@ class _LeverdataState extends State<Leverdata> {
                     // ignore: use_build_context_synchronously
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => const NameScreen()));
+                        builder: (BuildContext context) =>
+                            ThemLoadingScreen()));
               },
             ),
             // Truyền trạng thái vào nút START

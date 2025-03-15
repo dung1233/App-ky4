@@ -1,5 +1,7 @@
-import 'package:app/data/local.dart';
-import 'package:app/screens/Information/level_data.dart';
+import 'package:app/data/local_storage.dart';
+import 'package:app/screens/Information/birthday.dart';
+
+import 'package:app/screens/Information/name_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widget/elevatedButton.dart';
@@ -37,13 +39,17 @@ class _DataState extends State<Datascreen> {
       });
     }
 
-    print("🔥 Giới tính đã lưu: $savedGender"); // Debug
+    if (kDebugMode) {
+      print("🔥 Giới tính đã lưu: $savedGender");
+    } // Debug
   }
 
   void _saveGender() async {
     String gender = options[selectedOption]["title"]!;
     await LocalStorage.saveUserData(gender: gender);
-    print("✅ Đã lưu giới tính: $gender");
+    if (kDebugMode) {
+      print("✅ Đã lưu giới tính: $gender");
+    }
   }
 
   @override
@@ -124,8 +130,9 @@ class _DataState extends State<Datascreen> {
               isEnabled:
                   selectedOption != -1, // Chỉ bật nút nếu đã chọn giới tính
               onPressed: () async {
-                if (selectedOption == -1)
+                if (selectedOption == -1) {
                   return; // Nếu chưa chọn thì không làm gì cả
+                }
                 String gender = options[selectedOption]["title"]!;
                 await LocalStorage.saveUserData(gender: gender);
                 if (kDebugMode) {
@@ -135,7 +142,7 @@ class _DataState extends State<Datascreen> {
                   // ignore: use_build_context_synchronously
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => Leverdata()),
+                      builder: (BuildContext context) => BirthDateScreen()),
                 );
               },
             ),
