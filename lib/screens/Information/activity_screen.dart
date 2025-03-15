@@ -1,6 +1,11 @@
+<<<<<<< HEAD
+import 'package:app/data/local_storage.dart';
+import 'package:app/screens/Information/fitness_goal.dart';
+=======
 import 'package:app/data/local.dart';
 import 'package:app/screens/Information/fitness_goal.dart';
 import 'package:app/screens/Information/themloading.dart';
+>>>>>>> Minh
 import 'package:app/widget/elevatedButton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +35,11 @@ class _ActivityScreenState extends State<ActivityScreen> {
 
   void _loadactivity() async {
     Map<String, dynamic> userData = await LocalStorage.loadUserData();
+<<<<<<< HEAD
+    String saveactivity = userData['activity_level'] ?? "";
+=======
     String saveactivity = userData['activity'] ?? "";
+>>>>>>> Minh
     int index =
         options.indexWhere((options) => options['title'] == saveactivity);
     if (index != -1) {
@@ -44,10 +53,17 @@ class _ActivityScreenState extends State<ActivityScreen> {
   }
 
   void _saveactivity() async {
+<<<<<<< HEAD
+    String activityLevel = options[selectedOption]['title']!;
+    await LocalStorage.saveUserData(activity_level: activityLevel);
+    if (kDebugMode) {
+      print("✅ activity đã  lưu moi: $activityLevel");
+=======
     String activity = options[selectedOption]['title']!;
     await LocalStorage.saveUserData(activity: activity);
     if (kDebugMode) {
       print("✅ activity đã  lưu moi: $activity");
+>>>>>>> Minh
     }
   }
 
@@ -129,8 +145,13 @@ class _ActivityScreenState extends State<ActivityScreen> {
               isEnabled: selectedOption != -1,
               onPressed: () async {
                 if (selectedOption == -1) return;
+<<<<<<< HEAD
+                String activityLevel = options[selectedOption]['title']!;
+                await LocalStorage.saveUserData(activity_level: activityLevel);
+=======
                 String activity = options[selectedOption]['title']!;
                 await LocalStorage.saveUserData(activity: activity);
+>>>>>>> Minh
                 Navigator.push(
                     // ignore: use_build_context_synchronously
                     context,

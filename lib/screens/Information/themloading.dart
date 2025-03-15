@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+import 'package:app/api/api_service.dart';
+import 'package:app/api/dio_client.dart';
+import 'package:app/data/local_storage.dart';
+import 'package:app/models/user_data.dart';
+=======
 import 'package:app/data/local.dart';
+>>>>>>> Minh
 import 'package:app/screens/trainhome.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +18,28 @@ class ThemLoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Tự động kiểm tra và chuyển hướng khi build
     Future.delayed(Duration(seconds: 10), () async {
+<<<<<<< HEAD
+      final userDataMap = await LocalStorage.loadUserData();
+      final userData = UserData.fromJson(userDataMap);
+
+      if (kDebugMode) {
+        print('Dữ liệu đọc được: ${userData.toJson()}');
+      }
+
+      final apiService = ApiService(DioClient.dio);
+      await apiService.sendUserData(userData);
+
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Trainhome(
+              userData: userData.toJson(),
+            ),
+          ),
+        );
+      }
+=======
       final userData = await LocalStorage.loadUserData();
       if (kDebugMode) {
         print('Dữ liệu đọc được: $userData');
@@ -24,6 +53,7 @@ class ThemLoadingScreen extends StatelessWidget {
           ),
         ),
       );
+>>>>>>> Minh
     });
 
     return Scaffold(

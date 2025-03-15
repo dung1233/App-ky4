@@ -8,9 +8,13 @@ import 'package:flutter/material.dart';
 
 class Trainhome extends StatefulWidget {
   final Map<String, dynamic> userData; // Thêm trường dữ liệu
+<<<<<<< HEAD
+  const Trainhome({super.key, required this.userData}); // Sửa constructor
+=======
 
   const Trainhome({super.key, required this.userData}); // Sửa constructor
 
+>>>>>>> Minh
   @override
   // ignore: library_private_types_in_public_api
   _TrainhomeState createState() => _TrainhomeState();

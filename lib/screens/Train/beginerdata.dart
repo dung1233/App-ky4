@@ -6,6 +6,8 @@ List<Map<String, dynamic>> beginnerWorkouts = [
     "description": "Khởi động sức mạnh",
     "completed": false
   },
+<<<<<<< HEAD
+=======
   {
     "day": 2,
     "img": "assets/img/pushup.jpg", // Ảnh cho bài tập ngày 2
@@ -48,4 +50,5 @@ List<Map<String, dynamic>> beginnerWorkouts = [
     "description": "Thư giãn cơ thể",
     "completed": false
   },
+>>>>>>> Minh
 ];

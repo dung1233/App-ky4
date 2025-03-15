@@ -1,5 +1,11 @@
+<<<<<<< HEAD
+import 'package:app/data/local_storage.dart';
+import 'package:app/screens/Information/level_data.dart';
+
+=======
 import 'package:app/data/local.dart';
 import 'package:app/screens/Information/themloading.dart';
+>>>>>>> Minh
 import 'package:app/widget/elevatedButton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +35,11 @@ class _MedicalConditionsState extends State<MedicalConditions> {
 
   void _loadmedical() async {
     Map<String, dynamic> userData = await LocalStorage.loadUserData();
+<<<<<<< HEAD
+    String savemedical = userData['medical_conditions'] ?? "";
+=======
     String savemedical = userData['medical'] ?? "";
+>>>>>>> Minh
     int index =
         options.indexWhere((options) => options['title'] == savemedical);
     if (index != 1) {
@@ -44,10 +54,17 @@ class _MedicalConditionsState extends State<MedicalConditions> {
   }
 
   void _savemedical() async {
+<<<<<<< HEAD
+    String medicalConditions = options[selectedOption]['title']!;
+    await LocalStorage.saveUserData(medical_conditions: medicalConditions);
+    if (kDebugMode) {
+      print('✅ da luu medical moi: $medicalConditions');
+=======
     String medical = options[selectedOption]['title']!;
     await LocalStorage.saveUserData(medical: medical);
     if (kDebugMode) {
       print('✅ da luu medical moi: $medical');
+>>>>>>> Minh
     }
   }
 
@@ -129,14 +146,24 @@ class _MedicalConditionsState extends State<MedicalConditions> {
               isEnabled: selectedOption != -1,
               onPressed: () async {
                 if (selectedOption == -1) return;
+<<<<<<< HEAD
+                String medicalConditions = options[selectedOption]['title']!;
+                await LocalStorage.saveUserData(
+                    medical_conditions: medicalConditions);
+=======
                 String medical = options[selectedOption]['title']!;
                 await LocalStorage.saveUserData(medical: medical);
+>>>>>>> Minh
                 Navigator.push(
                     // ignore: use_build_context_synchronously
                     context,
                     MaterialPageRoute(
+<<<<<<< HEAD
+                        builder: (BuildContext context) => Leverdata()));
+=======
                         builder: (BuildContext context) =>
                             ThemLoadingScreen()));
+>>>>>>> Minh
               },
             ),
             // Truyền trạng thái vào nút START

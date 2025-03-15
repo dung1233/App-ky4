@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import 'package:app/data/local_storage.dart';
+=======
 import 'package:app/data/local.dart';
+>>>>>>> Minh
 import 'package:app/screens/Information/hight.dart';
 
 import 'package:flutter/material.dart';

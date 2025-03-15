@@ -47,7 +47,11 @@ dependencies:
   firebase_ui_auth: ^1.16.1
   flutter_riverpod: ^2.6.1
   permission_handler: ^11.3.1
+<<<<<<< HEAD
+  flutter_native_splash: ^2.4.4
+=======
 
+>>>>>>> Minh
   syncfusion_flutter_datepicker: ^28.2.5
   syncfusion_flutter_datagrid: ^28.2.5
   fl_chart: ^0.70.2
@@ -55,6 +59,13 @@ dependencies:
   lottie: ^3.3.1
   showcaseview: ^4.0.1
   google_fonts: ^6.2.1
+<<<<<<< HEAD
+  dio: ^5.8.0+1
+  retrofit: ^4.4.2
+  retrofit_generator: ^9.1.9
+  
+
+=======
 
   #pose
   google_mlkit_pose_detection: ^0.12.0
@@ -65,6 +76,7 @@ dependencies:
   path: any
   flutter_native_splash: ^2.4.4
   camera: ^0.10.5+2
+>>>>>>> Minh
 
 
 dev_dependencies:
@@ -100,7 +112,10 @@ flutter:
     - assets/img/
     
     - assets/splash/
+<<<<<<< HEAD
+=======
     - assets/pose/fitness_pose_samples.csv
+>>>>>>> Minh
   # To add assets to your application, add an assets section, like this:
   # assets:
 
